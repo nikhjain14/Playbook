@@ -1,8 +1,10 @@
 ---
 - hosts: all
   tasks:
-   - name: Create a directory if it does not exist
+   - name: Check repo list
      ansible.builtin.shell: "microdnf repolist"
      delegate_to: localhost
 
-
+   - name: Install tree package
+     ansible.builtin.shell: "microdnf install tree"
+     delegate_to: localhost

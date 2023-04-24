@@ -8,3 +8,7 @@
    - name: Install tree package
      ansible.builtin.shell: "microdnf install tree"
      delegate_to: localhost
+
+   - name: Final testing 
+     ansible.builtin.shell: "ls /"
+     delegate_to: localhost

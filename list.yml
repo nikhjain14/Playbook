@@ -1,8 +1,7 @@
 ---
 - hosts: all
   tasks:
-   - name: List repositories only
-     ansible.builtin.shell: "microdnf repolist"
-     delegate_to: localhost
+   - name: Print message
+     ansible.builtin.shell: echo "Hellow World"
 
 

@@ -5,3 +5,6 @@
   ansible.builtin.debug:
     msg: "Hello World!"
 
+- name: Import test_abc
+  import_role:
+    name: ../test_abc/test_abc

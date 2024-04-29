@@ -1,5 +1,4 @@
 - name: show fact variable
   hosts: all
   roles:
-    - test 
-    - test.test
+    - test

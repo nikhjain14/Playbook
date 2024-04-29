@@ -7,4 +7,4 @@
 
 - name: Import test_abc
   import_role:
-    name: ../test_abc/
+    name: test_abc/test_abc

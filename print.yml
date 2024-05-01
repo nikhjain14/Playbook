@@ -1,4 +1,9 @@
 - name: show fact variable
   hosts: all
+  tasks:
+    - name: Installing tree package
+      ansible.builtin.yum:
+        name: httpd
+        state: latest
   roles:
     - test

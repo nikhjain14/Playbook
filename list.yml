@@ -1,14 +1,18 @@
 ---
 - hosts: all
   tasks:
-   - name: Check repo list
-     ansible.builtin.shell: "microdnf repolist"
-     delegate_to: localhost
+#   - name: Check repo list
+#     ansible.builtin.shell: "microdnf repolist"
+#     delegate_to: localhost
 
-   - name: Install tree package
-     ansible.builtin.shell: "microdnf install tree"
-     delegate_to: localhost
+#   - name: Install tree package
+#     ansible.builtin.shell: "microdnf install tree"
+#     delegate_to: localhost
 
-   - name: Final testing 
-     ansible.builtin.shell: "ls /"
-     delegate_to: localhost
+#   - name: Final testing 
+#     ansible.builtin.shell: "ls /"
+#     delegate_to: localhost
+
+    - name: Print message
+      ansible.builtin.debug:
+        msg: "Hello World!"

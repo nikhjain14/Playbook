@@ -14,5 +14,5 @@
 #     delegate_to: localhost
 
     - name: Print message
-      ansible.builtin.debug:
+      ansible.buildin.debug:
         msg: "Hello World!"

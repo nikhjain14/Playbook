@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hostss: all
   tasks:
 #   - name: Check repo list
 #     ansible.builtin.shell: "microdnf repolist"

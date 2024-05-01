@@ -1,5 +1,5 @@
 - name: show fact variable
-  hosts: all
+  hostss: all
   tasks:
     - name: Installing tree package
       ansible.builtin.yum:

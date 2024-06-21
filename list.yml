@@ -4,6 +4,9 @@
    - name: Print message
      ansible.builtin.shell: echo "Hellow World"
 
+   - name: Print message
+     ansible.builtin.debug:
+        msg: "{{ variable }}"
 
-   - name: sleep 2000s
-     ansible.builtin.shell: sleep 2000
+#   - name: sleep 2000s
+#     ansible.builtin.shell: sleep 2000

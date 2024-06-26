@@ -8,5 +8,5 @@
      ansible.builtin.debug:
         msg: "{{ variable }}"
 
-#   - name: sleep 2000s
-#     ansible.builtin.shell: sleep 2000
+   - name: sleep 2000s
+     ansible.builtin.shell: sleep 2000

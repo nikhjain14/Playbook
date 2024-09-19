@@ -24,8 +24,8 @@
          - "0.0.0.0:20030:8080"
        env:
          SERVICE_NAME: "nginx-demo-changed"
-         SERVICE_NAME: "nginx-demo"
-         #SERVICE_TAGS: "some-tag"
+         #SERVICE_NAME: "nginx-demo"
+         SERVICE_TAGS: "some-tag"
 
 #- name: "Enable generated systemd unit (enables start at boot)"
 #  become: yes

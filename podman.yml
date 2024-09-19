@@ -10,7 +10,7 @@
    - name: "Make sure container is started with Podman."
      containers.podman.podman_container:
        name: "nginx-demo-20030"
-       image: "docker.io/library/nginx:1.27.0-alpine"
+       image: "registry.redhat.io/rhel8/httpd-24:1-335.1724231549"
        #image: "docker.io/library/nginx:1.27.1-alpine"
        state: "started"
        restart: yes

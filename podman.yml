@@ -1,0 +1,41 @@
+# Playbook-Aufruf
+- name: "Nginx demo"
+  hosts: all
+#  gather_facts: False # already gathered before
+  tasks:
+#    - include_role:
+#        name: "nginx-demo"
+
+# Task
+---
+- name: "Make sure container is started with Podman."
+  containers.podman.podman_container:
+    name: "nginx-demo-20030"
+    image: "docker.io/library/nginx:1.27.0-alpine"
+    #image: "docker.io/library/nginx:1.27.1-alpine"
+    state: "started"
+    restart: yes
+    restart_policy: "always" # equals docker restart policy "unless-stopped"
+    generate_systemd:
+      names: yes
+      restart_policy: always
+      path: /etc/systemd/system
+    published_ports:
+      - "0.0.0.0:20030:8080"
+    env:
+      SERVICE_NAME: "nginx-demo-changed"
+      #SERVICE_NAME: "nginx-demo"
+      SERVICE_TAGS: "some-tag"
+
+#- name: "Enable generated systemd unit (enables start at boot)"
+#  become: yes
+#  ansible.builtin.systemd_service:
+#    name: "container-nginx-demo-20030.service"
+#    enabled: yes # should start on boot?
+
+#- name: "Ensure generated systemd unit has started (necessary for podman restart policy)"
+#  become: yes
+#  ansible.builtin.systemd_service:
+#    name: "container-nginx-demo-20030.service"
+#    state: started
+#    daemon_reload: yes # make sure systemd has read any changes

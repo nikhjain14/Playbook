@@ -1,0 +1,27 @@
+---
+- name: Execute tasks on all nodes
+  hosts: all
+  tasks:
+    - name: Run the command "ls /root" on all nodes
+      command: ls /root
+      register: ls_output
+
+    - name: Store the command output in a variable using set_facts
+      set_fact:
+        ping_output: "{{ ls_output.stdout_lines }}"
+
+    - name: Print the variable value
+      debug:
+        var: ping_output
+
+- name: Use the variable value in the next play
+  hosts: all
+  tasks:
+    - name: Pass the variable value to the next play and store it in another variable
+      set_fact:
+        new_variable: "{{ ping_output }}"
+
+    - name: Print the new variable value
+      debug:
+        var: new_variable
+

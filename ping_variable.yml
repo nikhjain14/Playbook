@@ -1,0 +1,27 @@
+- name: Play 1 - Ping all target nodes and store outputs
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Ping the target nodes
+      ping:
+
+    - name: Store ping output in a variable
+      set_fact:
+        ping_output: "{{ ansible_facts.ping | default('pong') }}"  # Use default if ping response is absent
+
+    - name: Print the ping output variable for each host
+      debug:
+        var: ping_output
+
+- name: Play 2 - Use the variable from Play 1
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Aggregate ping outputs from all hosts
+      set_fact:
+        all_ping_outputs: "{{ hostvars | dict2items | selectattr('value.ping_output', 'defined') | map(attribute='value.ping_output') | list }}"
+
+    - name: Print all collected ping outputs
+      debug:
+        msg: "Aggregated Ping Outputs: {{ all_ping_outputs }}"
+

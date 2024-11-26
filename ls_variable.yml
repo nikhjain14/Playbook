@@ -14,14 +14,16 @@
       debug:
         var: ping_output
 
-- name: Use the variable value in the next play
-  hosts: all
+- name: Use the variable value on localhost
+  hosts: localhost
   tasks:
-    - name: Pass the variable value to the next play and store it in another variable
+    - name: Pass the variable value to the localhost and store it in another variable
       set_fact:
-        new_variable: "{{ ping_output }}"
+        new_variable: "{{ hostvars[item]['ping_output'] }}"
+      with_items: "{{ groups['all'] }}"
+      when: hostvars[item]['ping_output'] is defined
 
     - name: Print the new variable value
       debug:
-        var: new_variable
+        msg: "Combined output: {{ new_variable }}"
 

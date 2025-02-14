@@ -13,4 +13,5 @@
         controller_host: http://10.74.131.100
         controller_username: admin
         controller_password: redhat
+        validate_certs: false
         state: present

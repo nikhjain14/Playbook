@@ -1,5 +1,5 @@
 - name: Create and Configure a Constructed Inventory in AAP
-  hosts: localhost
+  hosts: 10.74.131.100
   gather_facts: no
   tasks:
     - name: Add constructed inventory with two existing input inventories

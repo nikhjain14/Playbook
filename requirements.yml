@@ -1,4 +1,5 @@
 ---
-#collections:
+collections:
 #  - name: containers.podman
+   - name: ansible.posix
 #  - name: ansible.controller

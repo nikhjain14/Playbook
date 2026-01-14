@@ -5,7 +5,7 @@
   tasks:
     - name: Synchronize directory on the target node
       ansible.posix.synchronize:
-        src: /var/tmp
+        src: /var/tmp/data
         dest: /tmp
         recursive: true
         delete: false

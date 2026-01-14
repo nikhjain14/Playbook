@@ -1,0 +1,16 @@
+---
+- name: Copy directory on target node
+  hosts: all
+  become: true
+  tasks:
+    - name: Synchronize directory on the target node
+      ansible.posix.synchronize:
+        src: /var/tmp
+        dest: /tmp
+        recursive: true
+        delete: false
+        rsync_opts:
+          - "--archive"
+          - "--verbose"
+#      delegate_to: "{{ inventory_hostname }}"
+

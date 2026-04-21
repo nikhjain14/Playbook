@@ -1,5 +1,5 @@
 ---
 collections:
-#  - name: containers.podman
+   - name: infra.aap_configuration
    - name: ansible.posix
 #  - name: ansible.controller

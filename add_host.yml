@@ -1,0 +1,22 @@
+- name: Create and Configure a Constructed Inventory in AAP
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+    vars:
+    controller_hostname: "https://gateway.awxlab.pnq2.redhat.com"
+    controller_username: "admin"
+    controller_password: "RedHat1!"
+    controller_validate_certs: false
+
+    controller_hosts:
+      - name: "my-execution-node"
+        description: "Execution node"
+        inventory: "Demo Inventory"
+        enabled: false
+        variables:
+          ansible_host: "192.168.1.10"
+          
+
+  roles:
+    - infra.aap_configuration.controller_hosts
